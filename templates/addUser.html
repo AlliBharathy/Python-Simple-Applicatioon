@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add New contact</title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+</head>
+<body>
+<form method="post" action="{{ url_for('new') }}" name="addForm">
+<h2 align = 'center' >Add Contact Details</h2>
+</br>
+</br>
+
+</div>
+    <div class='row'>
+        <div class='col-sm-4'></div>
+        <div class ='col-sm-2'><label>Name :</label></div>
+        <div class = 'col-sm-2'><input type="text" name = "name"  required=""></div>
+         <div class='col-sm-4'></div>
+    </div>
+    </br>
+    <div class='row'>
+        <div class='col-sm-4'></div>
+        <div class ='col-sm-2'><label>Phone Number:</label></div>
+        <div class = 'col-sm-2'><input type="text" name = "pnumber" required ></div>
+         <div class='col-sm-4'></div>
+    </div>
+    </br>
+    <div class='row'>
+        <div class='col-sm-4'></div>
+        <div class ='col-sm-2'><label>E-mail :</label></div>
+        <div class = 'col-sm-2'><input type="text" name = "email"></div>
+         <div class='col-sm-4'></div>
+    </div>
+    </br>
+    <div class = 'row'>
+        <div class='col-sm-6'></div>
+        <div class="col-sm-1"><input type="submit" class="btn btn-link" name="submit"></div>
+        <div class="col-sm-2"><input type="reset" class="btn btn-link" name="cancel"></div>
+    </div>
+
+
+</form>
+<div class="col-sm-9">
+		 <h3 class="h3" align="center">Existing Contacts </h3><br>
+		  <div style="max-height:200px; overflow-y:scroll;width:1100px">
+		 <table WIDTH="100%"  border=1 class="table table-bordered">
+         <thead>
+            <tr bgcolor=>
+
+               <th>Name</th>
+               <th>Phone number</th>
+               <th>Email-Id</th>
+
+            </tr>
+         </thead>
+
+
+           {% for user in users|sort(attribute='name') %}
+               <tr>
+
+                  <td style="text-transform: capitalize">{{ user.name }}</td>
+                  <td>{{ user.mobile }}</td>
+                  <td>{{ user.email}}</td>
+
+               </tr>
+            {% endfor %}
+         </table>
+          </div>
+</div>
+</body>
+</html>
